@@ -1,6 +1,8 @@
 package com.clima.gui;
 
+import com.vaadin.copilot.shaded.io.netty.util.concurrent.ImmediateEventExecutor;
 import com.vaadin.flow.component.notification.Notification;
+import com.vaadin.flow.component.notification.NotificationVariant;
 
 public class ExceptionHandler {
 
@@ -33,24 +35,21 @@ public class ExceptionHandler {
     }
 
     public static void showSuccessNotification(String message) {
-        Notification notification = new Notification(message, 3000);
-        notification.getStyle().set("background-color", "#c8e6c9");
-        notification.getStyle().set("color", "#1b5e20");
-        notification.open();
+        Notification notification = Notification.show(message);
+        notification.addThemeVariants(com.vaadin.flow.component.notification.NotificationVariant.LUMO_SUCCESS);
+        notification.setDuration(3000);
     }
 
     public static void showErrorNotification(String message) {
-        Notification notification = new Notification(message, 4000);
-        notification.getStyle().set("background-color", "#ffcdd2");
-        notification.getStyle().set("color", "#c62828");
-        notification.open();
+        Notification notification = Notification.show(message);
+        notification.addThemeVariants(NotificationVariant.LUMO_ERROR);
+        notification.setDuration(4000);
     }
 
     public static void showWarningNotification(String message) {
-        Notification notification = new Notification(message, 3500);
-        notification.getStyle().set("background-color", "#fff3e0");
-        notification.getStyle().set("color", "#f57f17");
-        notification.open();
+        Notification notification = Notification.show(message);
+        notification.addThemeVariants(NotificationVariant.LUMO_CONTRAST);
+        notification.setDuration(4000);
     }
 }
 
