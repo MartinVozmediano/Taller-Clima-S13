@@ -93,7 +93,7 @@ public class ZoneDialog extends Dialog {
             close();
 
         } catch (IllegalArgumentException e) {
-            showNotification("Datos inválidos: " + e.getMessage(), "error");
+            showNotification("Datos inválidos: " + e.getMessage(), "error ");
         } catch (Exception e) {
             showNotification("Error al guardar en MongoDB: " + e.getMessage(), "error");
         }
