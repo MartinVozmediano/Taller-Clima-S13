@@ -5,12 +5,12 @@ import  java.time.LocalDateTime;
 public class Prediccion {
     //Limites planteados en el codigo anterior por investigacion de niveles criticos de la OMS
 
-    private static final double LIMITE_CO2 = 1000.0;
+    private static final double LIMITE_CO2 = 400.0;
     private static final double LIMITE_SO2 = 20.0;
     private static final double LIMITE_NO2 = 40.0;
     private static final double LIMITE_PM25 = 15.0;
 
-    private int zonaid;
+    private String zonaId;
     private LocalDateTime fechaGeneracion;
     private String resumen;
     private boolean alertaActiva;
@@ -22,10 +22,10 @@ public class Prediccion {
     private double pm25Proyectado;
 
     //Constructor sin resumen ni alerta
-    public Prediccion(int zonaid, LocalDateTime fechaGeneracion,
+    public Prediccion(String zonaId, LocalDateTime fechaGeneracion,
                       double co2Proyectado, double so2Proyectado,
                       double no2Proyectado, double pm25Proyectado) {
-        this.zonaid = zonaid;
+        this.zonaId = zonaId;
         this.fechaGeneracion = fechaGeneracion;
         this.co2Proyectado = co2Proyectado;
         this.so2Proyectado = so2Proyectado;
@@ -77,8 +77,8 @@ public class Prediccion {
     }
 
     //GETTERS Y SETTERS
-    public int getZonaid() { return zonaid; }
-    public void setZonaid(int zonaid) { this.zonaid = zonaid; }
+    public String getZonaid() { return zonaId; }
+    public void setZonaid(String zonaId) { this.zonaId = zonaId; }
 
     public LocalDateTime getFechaGeneracion() {
         return fechaGeneracion;

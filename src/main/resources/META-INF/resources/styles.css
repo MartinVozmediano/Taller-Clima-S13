@@ -1,1 +1,201 @@
-/* Add your styles here */
+/* Paleta de colores verdes y claros para Sistema de Monitoreo de Clima */
+
+:root {
+  --primary-green: #2e7d32;
+  --light-green: #43a047;
+  --lighter-green: #66bb6a;
+  --very-light-green: #a5d6a7;
+  --pale-green: #c8e6c9;
+  --off-white: #f1f8e9;
+  --white: #ffffff;
+  --dark-text: #1b5e20;
+  --light-text: #666666;
+  --error: #c62828;
+  --warning: #f57f17;
+}
+
+/* Estilos globales */
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html, body {
+  background-color: var(--off-white);
+  color: var(--dark-text);
+}
+
+/* Botones */
+vaadin-button {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+vaadin-button[theme~="primary"] {
+  background-color: var(--light-green);
+  color: white;
+}
+
+vaadin-button[theme~="primary"]:hover {
+  background-color: var(--primary-green);
+}
+
+vaadin-button[theme~="success"] {
+  background-color: var(--lighter-green);
+}
+
+vaadin-button[theme~="error"] {
+  background-color: var(--error);
+}
+
+/* Grid */
+vaadin-grid {
+  border: 1px solid var(--very-light-green);
+}
+
+vaadin-grid::part(header-cell) {
+  background-color: var(--pale-green);
+  color: var(--dark-text);
+  font-weight: 600;
+}
+
+vaadin-grid::part(row) {
+  border-bottom: 1px solid #e8f5e9;
+}
+
+/* Diálogos */
+vaadin-dialog {
+  background-color: var(--white);
+}
+
+/* Campos de texto */
+vaadin-text-field,
+vaadin-number-field,
+vaadin-combo-box {
+  --lumo-primary-color: var(--light-green);
+}
+
+/* Notificaciones */
+vaadin-notification {
+  --lumo-primary-color: var(--light-green);
+}
+
+/* Tabs */
+vaadin-tabs {
+  --lumo-primary-color: var(--light-green);
+}
+
+vaadin-tab[selected] {
+  border-bottom: 3px solid var(--light-green);
+  color: var(--dark-text);
+}
+
+/* Cards personalizadas */
+.zone-card {
+  background: linear-gradient(135deg, #c8e6c9 0%, #f1f8e9 100%);
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 6px rgba(46, 125, 50, 0.1);
+  border-left: 4px solid var(--light-green);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.zone-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+}
+
+.zone-card.good {
+  background-color: #c8e6c9;
+}
+
+.zone-card.moderate {
+  background-color: #fff9c4;
+}
+
+.zone-card.sensitive {
+  background-color: #ffe0b2;
+}
+
+.zone-card.unhealthy {
+  background-color: #ffcdd2;
+}
+
+/* Headers */
+h1, h2, h3 {
+  color: var(--dark-text);
+}
+
+h1 {
+  border-bottom: 3px solid var(--light-green);
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Alertas */
+.alert-success {
+  background-color: var(--pale-green);
+  color: var(--dark-text);
+  padding: 12px;
+  border-left: 4px solid var(--light-green);
+  border-radius: 4px;
+}
+
+.alert-error {
+  background-color: #ffebee;
+  color: var(--error);
+  padding: 12px;
+  border-left: 4px solid var(--error);
+  border-radius: 4px;
+}
+
+.alert-warning {
+  background-color: #fff3e0;
+  color: var(--warning);
+  padding: 12px;
+  border-left: 4px solid var(--warning);
+  border-radius: 4px;
+}
+
+/* Panel principal */
+.main-panel {
+  background-color: var(--off-white);
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.dashboard-panel {
+  background: linear-gradient(to bottom, #f1f8e9, #ffffff);
+  border-right: 2px solid var(--very-light-green);
+}
+
+.menu-panel {
+  background-color: var(--off-white);
+  border-left: 2px solid var(--very-light-green);
+}
+
+/* Divisores */
+hr {
+  border: none;
+  border-top: 2px solid var(--very-light-green);
+  margin: 15px 0;
+}
+
+/* Scroll personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f8e9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--very-light-green);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--light-green);
+}

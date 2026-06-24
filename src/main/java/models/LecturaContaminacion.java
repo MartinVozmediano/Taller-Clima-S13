@@ -10,6 +10,7 @@ public class LecturaContaminacion {
 
     @Id
     private String id;
+    
     private String zonaId;
     private LocalDateTime fechaHora;
 
