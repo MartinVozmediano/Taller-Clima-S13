@@ -1,20 +1,16 @@
-package gui;
+package com.clima.gui;
 
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.html.H1;
-import com.vaadin.flow.component.html.H2;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.Route;
-import com.vaadin.flow.server.PWA;
-import models.Zona;
 import repositories.ZonaRepository;
 import repositories.ContaminacionRepository;
 import services.ServicioPrediccion;
 import org.springframework.beans.factory.annotation.Autowired;
 
 @Route("")
-@PWA(name = "Sistema de Monitoreo de Clima", shortName = "ClimaSys")
 public class MainView extends AppLayout {
 
     private final ZonaRepository zonaRepository;
@@ -35,29 +31,26 @@ public class MainView extends AppLayout {
     }
 
     private void setupLayout() {
-        // Crear barra de navegación
         createHeader();
 
-        // Crear contenido principal
         VerticalLayout content = new VerticalLayout();
-        content.setPadding(false);
-        content.setSpacing(false);
-        content.setHeightFull();
+        content.setPadding(true);
+        content.setSpacing(true);
+        content.setSizeFull();
 
-        // Crear layout horizontal: panel izquierdo (dashboard) y derecho (menú)
         HorizontalLayout mainLayout = new HorizontalLayout();
         mainLayout.setWidthFull();
         mainLayout.setHeightFull();
         mainLayout.setSpacing(false);
         mainLayout.setPadding(false);
 
-        // Panel izquierdo (Dashboard - 75%)
+        // Inicializar el contenedor principal izquierdo
         dashboardPanel = new DashboardPanel(zonaRepository, servicioPrediccion);
         dashboardPanel.setContaminacionRepository(contaminacionRepository);
         dashboardPanel.setWidth("75%");
         dashboardPanel.setHeight("100%");
 
-        // Panel derecho (Menú - 25%)
+        // Inicializar el menú derecho pasando la referencia del contenedor izquierdo
         menuPanel = new MenuPanel(zonaRepository, servicioPrediccion, dashboardPanel);
         menuPanel.setContaminacionRepository(contaminacionRepository);
         menuPanel.setWidth("25%");
@@ -77,13 +70,7 @@ public class MainView extends AppLayout {
 
         VerticalLayout header = new VerticalLayout(appTitle);
         header.getStyle().set("background-color", "#e8f5e9");
-        header.getStyle().set("border-bottom", "3px solid #2e7d32");
-        header.setPadding(true);
-        header.setSpacing(false);
-
+        header.setWidthFull();
         addToNavbar(header);
     }
 }
-
-
-

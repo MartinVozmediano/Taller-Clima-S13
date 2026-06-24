@@ -148,7 +148,7 @@ http://localhost:8080
 ## Arquitectura
 
 ### Paquetes
-- **gui**: Componentes visuales (MainView, Dialogs, Panels)
+- **com.clima.gui**: Componentes visuales (MainView, Dialogs, Panels)
 - **services**: Lógica de negocio (ServicioPrediccion)
 - **repositories**: Acceso a datos (MongoDB)
 - **models**: Entidades de datos
@@ -159,7 +159,7 @@ src/main/
 ├── java/
 │   ├── com/clima/
 │   │   └── Application.java
-│   ├── gui/
+│   ├── com.clima.gui/
 │   │   ├── MainView.java
 │   │   ├── DashboardPanel.java
 │   │   ├── MenuPanel.java

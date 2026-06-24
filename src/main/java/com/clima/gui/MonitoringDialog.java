@@ -1,4 +1,4 @@
-package gui;
+package com.clima.gui;
 
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.button.Button;
@@ -7,14 +7,12 @@ import com.vaadin.flow.component.combobox.ComboBox;
 import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H3;
-import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import models.Zona;
 import models.LecturaContaminacion;
 import repositories.ZonaRepository;
 import repositories.ContaminacionRepository;
 import services.ServicioPrediccion;
-import java.util.Optional;
 
 public class MonitoringDialog extends Dialog {
 

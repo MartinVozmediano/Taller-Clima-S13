@@ -1,4 +1,4 @@
-package gui;
+package com.clima.gui;
 
 import com.vaadin.flow.component.notification.Notification;
 

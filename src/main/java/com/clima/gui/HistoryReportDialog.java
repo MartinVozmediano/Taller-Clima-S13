@@ -1,4 +1,4 @@
-package gui;
+package com.clima.gui;
 
 import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.button.Button;

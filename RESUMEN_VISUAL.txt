@@ -42,7 +42,7 @@
 ║                    COMPONENTES CREADOS                           ║
 ╠══════════════════════════════════════════════════════════════════╣
 ║                                                                  ║
-║  ✓ 12 Componentes GUI en paquete gui/                           ║
+║  ✓ 12 Componentes GUI en paquete com.clima.gui/                           ║
 ║  ✓ 5 Archivos modificados para integración                      ║
 ║  ✓ 4 Archivos de documentación                                  ║
 ║  ✓ Conexión MongoDB completamente configurada                  ║
@@ -228,7 +228,7 @@
 ║                   ESTRUCTURA PAQUETES JAVA                       ║
 ╠══════════════════════════════════════════════════════════════════╣
 ║                                                                  ║
-║  gui/              (12 archivos)                               ║
+║  com.clima.gui/              (12 archivos)                               ║
 ║  ├─ MainView.java                                             ║
 ║  ├─ DashboardPanel.java                                       ║
 ║  ├─ MenuPanel.java                                            ║

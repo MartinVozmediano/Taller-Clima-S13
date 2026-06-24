@@ -1,4 +1,4 @@
-package gui;
+package com.clima.gui;
 
 import repositories.ContaminacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;

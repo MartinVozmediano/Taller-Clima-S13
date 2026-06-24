@@ -5,7 +5,7 @@
 📂 ARCHIVOS CREADOS (12 nuevos en GUI):
 ───────────────────────────────────────
 
-Paquete GUI - src/main/java/gui/
+Paquete GUI - src/main/java/com.clima.gui/
 
 1. MainView.java
    Clase: AppLayout
@@ -279,7 +279,7 @@ Taller-Clima-S13/
 ├── src/main/java/
 │   ├── com/clima/
 │   │   └── Application.java [MODIFICADO]
-│   ├── gui/
+│   ├── com.clima.gui/
 │   │   ├── MainView.java [NUEVO]
 │   │   ├── DashboardPanel.java [NUEVO]
 │   │   ├── MenuPanel.java [NUEVO]
@@ -357,7 +357,7 @@ P: ¿Se pueden modificar los colores?
 R: Sí, en src/main/resources/META-INF/resources/styles.css
 
 P: ¿Cómo agregar nuevas funcionalidades?
-R: Crear nuevos Dialogs en gui/ siguiendo el patrón existente
+R: Crear nuevos Dialogs en com.clima.gui/ siguiendo el patrón existente
 
 P: ¿Cómo cambiar puertos?
 R: Editar server.port en application.properties

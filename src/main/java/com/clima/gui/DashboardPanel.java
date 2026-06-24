@@ -1,4 +1,4 @@
-package gui;
+package com.clima.gui;
 
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.H2;
@@ -6,14 +6,12 @@ import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import models.Zona;
-import models.LecturaContaminacion;
 import repositories.ZonaRepository;
 import repositories.ContaminacionRepository;
 import services.ServicioPrediccion;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
-import java.util.Optional;
 
 public class DashboardPanel extends VerticalLayout {
 
@@ -60,9 +58,14 @@ public class DashboardPanel extends VerticalLayout {
         try {
             zonesContainer.removeAll();
 
-            List<Zona> zonas = zonaRepository.findAll();
+            List<Zona> zonas = null;
+            try {
+                zonas = zonaRepository.findAll();
+            } catch (Exception e) {
+                zonas = List.of();
+            }
 
-            if (zonas.isEmpty()) {
+            if (zonas == null || zonas.isEmpty()) {
                 Div emptyMessage = new Div();
                 emptyMessage.setText("No hay zonas registradas. Cree una nueva zona para comenzar.");
                 emptyMessage.getStyle().set("color", "#888");
@@ -73,7 +76,11 @@ public class DashboardPanel extends VerticalLayout {
             }
 
             for (Zona zona : zonas) {
-                zonesContainer.add(createZoneCard(zona));
+                try {
+                    zonesContainer.add(createZoneCard(zona));
+                } catch (Exception e) {
+                    // Continuar con la siguiente zona si hay error en una
+                }
             }
 
         } catch (Exception e) {
@@ -93,14 +100,19 @@ public class DashboardPanel extends VerticalLayout {
         card.getStyle().set("justify-content", "space-between");
 
         try {
-            // Obtener última lectura
+            // Obtener última lectura con manejo robusto de errores
             double pm25Actual = 0;
 
-            if (contaminacionRepository != null) {
-                var ultimaLectura = contaminacionRepository.findFirstByZonaIdOrderByFechaHoraDesc(zona.getId());
-                if (ultimaLectura.isPresent()) {
-                    pm25Actual = ultimaLectura.get().getPm25();
+            try {
+                if (contaminacionRepository != null) {
+                    var ultimaLectura = contaminacionRepository.findFirstByZonaIdOrderByFechaHoraDesc(zona.getId());
+                    if (ultimaLectura.isPresent()) {
+                        pm25Actual = ultimaLectura.get().getPm25();
+                    }
                 }
+            } catch (Exception ex) {
+                // Si falla la consulta, usar valor por defecto
+                pm25Actual = 0;
             }
 
             // Determinar color según contaminación

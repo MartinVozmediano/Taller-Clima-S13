@@ -1,14 +1,12 @@
-package gui;
+package com.clima.gui;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.button.ButtonVariant;
 import com.vaadin.flow.component.html.H3;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import models.Zona;
 import repositories.ZonaRepository;
 import repositories.ContaminacionRepository;
 import services.ServicioPrediccion;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class MenuPanel extends VerticalLayout {
 
@@ -17,8 +15,8 @@ public class MenuPanel extends VerticalLayout {
     private final DashboardPanel dashboardPanel;
     private ContaminacionRepository contaminacionRepository;
 
-    public MenuPanel(@Autowired ZonaRepository zonaRepository,
-                     @Autowired ServicioPrediccion servicioPrediccion,
+    public MenuPanel(ZonaRepository zonaRepository,
+                     ServicioPrediccion servicioPrediccion,
                      DashboardPanel dashboardPanel) {
         this.zonaRepository = zonaRepository;
         this.servicioPrediccion = servicioPrediccion;
@@ -31,6 +29,10 @@ public class MenuPanel extends VerticalLayout {
         getStyle().set("overflow-y", "auto");
 
         setupMenu();
+    }
+
+    public void setContaminacionRepository(ContaminacionRepository contaminacionRepository) {
+        this.contaminacionRepository = contaminacionRepository;
     }
 
     private void setupMenu() {
@@ -144,11 +146,16 @@ public class MenuPanel extends VerticalLayout {
         button.getStyle().set("border-radius", "4px");
         button.getStyle().set("cursor", "pointer");
 
+        // CORREGIDO: Se quita ExceptionHandler y se usa la notificación nativa de Vaadin
         button.addClickListener(event -> {
             try {
                 onClick.run();
             } catch (Exception e) {
-                ExceptionHandler.handleGeneralException(e);
+                com.vaadin.flow.component.notification.Notification.show(
+                        "Error al abrir la ventana: " + e.getMessage(),
+                        3000,
+                        com.vaadin.flow.component.notification.Notification.Position.MIDDLE
+                );
             }
         });
 
@@ -157,7 +164,7 @@ public class MenuPanel extends VerticalLayout {
         });
 
         button.getElement().addEventListener("mouseout", event -> {
-            button.getStyle().set("background-color", ""); // Vuelve al color original o al de tu CSS
+            button.getStyle().set("background-color", "");
         });
 
         return button;
@@ -166,14 +173,8 @@ public class MenuPanel extends VerticalLayout {
     private void addDivisor() {
         com.vaadin.flow.component.html.Hr divisor = new com.vaadin.flow.component.html.Hr();
         divisor.getStyle().set("border-top", "2px solid #a5d6a7");
-        divisor.getStyle().set("margin", "15px 0");
+        divisor.getStyle().set("margin", "10px 0");
         add(divisor);
     }
 
-    public void setContaminacionRepository(ContaminacionRepository repo) {
-        this.contaminacionRepository = repo;
-    }
 }
-
-
-
