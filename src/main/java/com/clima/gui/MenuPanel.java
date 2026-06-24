@@ -45,7 +45,11 @@ public class MenuPanel extends VerticalLayout {
         // Botón: Crear Zona
         add(createMenuButton("➕ Crear Zona", () -> {
             try {
-                ZoneDialog dialog = new ZoneDialog(zonaRepository, dashboardPanel);
+                if (contaminacionRepository == null) {
+                    ExceptionHandler.showWarningNotification("Repositorio no disponible aún");
+                    return;
+                }
+                ZoneDialog dialog = new ZoneDialog(zonaRepository, contaminacionRepository, dashboardPanel);
                 dialog.open();
             } catch (Exception e) {
                 ExceptionHandler.handleGeneralException(e);
