@@ -1,6 +1,6 @@
 # 📖 Sistema de Monitoreo de Calidad del Aire - Documentación Completa
 
-## 📋 Tabla de Contenidos
+## Tabla de Contenidos
 1. [Descripción General](#descripción-general)
 2. [Tecnologías Utilizadas](#tecnologías-utilizadas)
 3. [Arquitectura del Sistema](#arquitectura-del-sistema)
@@ -14,7 +14,7 @@
 
 ---
 
-## 🎯 Descripción General
+##  Descripción General
 
 **Sistema de Monitoreo de Calidad del Aire** es una aplicación web moderna que permite:
 
@@ -30,7 +30,7 @@ Proporcionar una herramienta integral para organizaciones ambientales, municipio
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 | Componente | Tecnología | Versión |
 |-----------|-----------|---------|
@@ -50,7 +50,7 @@ Proporcionar una herramienta integral para organizaciones ambientales, municipio
 
 ---
 
-## 🏗️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
@@ -101,7 +101,7 @@ Proporcionar una herramienta integral para organizaciones ambientales, municipio
 
 ---
 
-## 📦 Componentes Principales
+## Componentes Principales
 
 ### 1. **Application.java** (Punto de Entrada)
 ```java
@@ -123,7 +123,7 @@ public class Application implements AppShellConfigurator {
 
 ---
 
-## 💾 Modelos de Datos
+## Modelos de Datos
 
 ### 1. **Zona.java**
 ```java
@@ -215,7 +215,7 @@ public class Prediccion {
 
 ---
 
-## 🔧 Servicios
+## Servicios
 
 ### **ServicioPrediccion.java**
 
@@ -259,7 +259,7 @@ Promedio PM2.5 = Σ(PM2.5) / cantidad de lecturas
 
 ---
 
-#### 3. **Predicción de Niveles Futuros** (⭐ Algoritmo Clave)
+#### 3. **Predicción de Niveles Futuros** (Algoritmo Clave)
 
 ```java
 public Prediccion predecirNivelesFuturos(String zonaId, FactoresClimaticos clima)
@@ -316,7 +316,7 @@ fechaProyeccion = ahora + 24 horas
 
 ---
 
-## 🎨 Interfaz Gráfica (GUI)
+## Interfaz Gráfica (GUI)
 
 ### **MainView.java** (Vista Principal)
 
@@ -418,7 +418,7 @@ fechaProyeccion = ahora + 24 horas
 
 ---
 
-## 📊 Flujo de Datos
+## Flujo de Datos
 
 ### Flujo 1: Crear una Zona
 ```
@@ -516,7 +516,7 @@ server.port=8081
 
 ---
 
-## 📋 Funcionalidades Detalladas
+## Funcionalidades Detalladas
 
 ### 1. **Gestión de Zonas**
 
@@ -665,7 +665,7 @@ PM2.5:  12.8 µg/m³     ✓ Dentro de límites
 
 ---
 
-## 📝 Manejo de Excepciones
+## Manejo de Excepciones
 
 ### ExceptionHandler.java
 - Método: `handleGeneralException(Exception e)`
@@ -706,20 +706,20 @@ PM2.5:  12.8 µg/m³     ✓ Dentro de límites
 
 ---
 
-## 🏆 Características Destacadas
+## Características Destacadas
 
-✅ **Sistema de Ponderación**: Los últimos datos tienen más peso  
-✅ **Factores Climáticos**: Considera viento y humedad en predicciones  
-✅ **Límites OMS**: Alertas basadas en estándares internacionales  
-✅ **Interfaz Moderna**: Vaadin con diseño responsive  
-✅ **Persistencia MongoDB**: Datos duraderos y escalables  
-✅ **Manejo de Errores**: Excepciones controladas y logs  
-✅ **Push en Tiempo Real**: Actualizaciones servidor-cliente  
-✅ **Reportes Completos**: Históricos y finales con gráficas  
+**Sistema de Ponderación**: Los últimos datos tienen más peso  
+**Factores Climáticos**: Considera viento y humedad en predicciones  
+**Límites OMS**: Alertas basadas en estándares internacionales  
+**Interfaz Moderna**: Vaadin con diseño responsive  
+**Persistencia MongoDB**: Datos duraderos y escalables  
+**Manejo de Errores**: Excepciones controladas y logs  
+**Push en Tiempo Real**: Actualizaciones servidor-cliente  
+**Reportes Completos**: Históricos y finales con gráficas  
 
 ---
 
-## 📞 Soporte y Contacto
+## Soporte y Contacto
 
 Para más información sobre las tecnologías:
 - **Spring Boot**: https://spring.io/projects/spring-boot
